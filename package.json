@@ -7,7 +7,7 @@
     "sass": "sass --watch public/assets/sass/main.scss:public/assets/css/main.css",
     "build": "sass public/assets/sass/main.scss:public/assets/css/main.css --style=compressed",
     "prod": "webpack --mode=production",
-    "dev": "webpack serve --watch --content-base public --hot"
+    "dev": "webpack serve --watch --content-base public --hot --port 3000"
   },
   "keywords": [],
   "author": "",
