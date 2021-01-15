@@ -1,6 +1,12 @@
+import firebase from './firebase-app'
+import { getFormValues, showAlertError } from './utils'
+
+
 const authPage = document.querySelector('main#auth')
 
 if(authPage){
+
+    const auth = firebase.auth()
 
     const hideAuthForms = () => {
 
@@ -36,7 +42,7 @@ if(authPage){
                 showAuthForm('reset')
                 break
             default :
-                showAuthForm('auth-email')
+                showAuthForm('login')
         }
     }
 
@@ -62,4 +68,55 @@ if(authPage){
         btnSubmit.disabled = false
         
     })
+
+    // Criar conta
+    const formAuthRegister = document.querySelector('#register')
+    const alertDangerRegister = formAuthRegister.querySelector(".alert.danger")
+
+    formAuthRegister.addEventListener("submit", e => {
+
+        e.preventDefault()
+
+        alertDangerRegister.style.display = "none"
+
+        const values = getFormValues(formAuthRegister)
+
+        auth
+            .createUserWithEmailAndPassword(values.email, values.password)
+            .then(response => {
+
+                const { user } = response
+
+                user.updateProfile({
+                    displayName: values.name
+                })
+
+                window.location.href = "/"
+            })
+            .catch(showAlertError(formAuthRegister) )
+
+    })
+
+    // Logar na conta
+    const formAuthLogin = document.querySelector('#login')
+    const alertDangerLogin = formAuthRegister.querySelector(".alert.danger")
+
+
+    formAuthLogin.addEventListener('submit', e => {
+
+        e.preventDefault()
+
+        const values = getFormValues(formAuthLogin)
+
+        alertDangerLogin.style.display = "none"
+
+        auth.
+            signInWithEmailAndPassword(values.email, values.password)
+            .then(response => window.location.href = "/")
+            .catch(showAlertError(formAuthLogin) )
+
+
+    })
+
+
 }
