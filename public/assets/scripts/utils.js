@@ -1,3 +1,5 @@
+
+// Insere um elemento com wrapper definido em tagName 
 export function appendTemplate(element, tagName, html) {
     const wrapElement = document.createElement(tagName)
 
@@ -8,6 +10,7 @@ export function appendTemplate(element, tagName, html) {
     return wrapElement
 }
 
+// Pega a parte html do auth.js que é solicitado pelo usuário por query string
 export function getQueryString() {
 
     const queryString = {}
@@ -27,6 +30,7 @@ export function getQueryString() {
     return queryString
 
 }
+
 
 export function setFormValues(form, values) {
 
@@ -52,6 +56,8 @@ export function setFormValues(form, values) {
 
 }
 
+
+// Pega os valores dos inputs do formulário solicitado.
 export function getFormValues(form) {
 
     const values = {}
@@ -80,5 +86,46 @@ export function getFormValues(form) {
     })
 
     return values
+
+}
+
+// Ocultar mensagem de erro do formulário
+export function hideAlertError(form) {
+
+    const alertElement = form.querySelector(".alert.danger")
+
+    alertElement.style.display = "none"
+
+}
+
+// Mostrar mensagem de erro do formulário
+export function showAlertError(form, error) {
+
+    return error => {
+
+        const alertElement = form.querySelector(".alert.danger")
+
+        alertElement.innerHTML = error.message
+        alertElement.style.display = "block"
+
+    }
+
+}
+
+export function formatCurrency(value) {
+
+    return parseFloat(value).toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+    })
+
+}
+
+export function onSnapshotError(err) {
+
+    const pathName = encodeURI(window.location.pathName)
+    const search = encodeURI(window.location.search)
+
+    window.location.href = `/auth.html?url=${pathName}${search}`;
 
 }

@@ -59,7 +59,7 @@
                 <hr />
 
                 <div class="field">
-                    <input type="email" name="email" id="email-login" readonly value="joao@hcode.com.br" />
+                    <input type="email" name="email" id="email-login" />
                     <label for="email-login">E-mail</label>
                 </div>
 
@@ -68,11 +68,14 @@
                     <label for="password">Digite sua Senha</label>
                 </div>
 
+                <div class="alert danger"></div>
+
                 <div class="actions">
 
                     <div>
                         <a href="auth.html#forget" class="link">Esqueceu sua senha?</a>
-                        <a href="auth.html" class="link">Este não é o seu e-mail?</a>
+                        <a href="auth.html#register" class="link">Criar uma Conta</a>
+                        <!-- <a href="auth.html" class="link">Este não é o seu e-mail?</a> -->
                     </div>
                     <button type="submit">Login</button>
 
@@ -87,8 +90,8 @@
                 <hr />
 
                 <div class="field">
-                    <input type="email" name="email" id="email-login" readonly value="joao@hcode.com.br" />
-                    <label for="email-login">E-mail</label>
+                    <input type="email" name="email" id="email-register"/>
+                    <label for="email-register">E-mail</label>
                 </div>
 
                 <div class="field">
@@ -111,6 +114,9 @@
                     <label for="password-confirm">Confirme a Senha</label>
                 </div>
 
+                <div class="alert danger"></div>
+
+
                 <div class="actions">
 
                     <a href="auth.html#login" class="link">Já tem uma conta?</a>
@@ -126,7 +132,18 @@
 
                 <hr />
 
-                <div class="loading-wrap">
+                <div class="field">
+                    <input type="email" name="email" id="email-forget"/>
+                    <label for="email-register">E-mail</label>
+                </div>
+
+                <div class="alert danger"></div>
+
+                <div class="actions">
+                    <button type="submit">Enviar</button>
+                </div>
+
+                <!-- <div class="loading-wrap">
                     <div class="loading">
                         <div></div>
                         <div></div>
@@ -134,9 +151,9 @@
                         <div></div>
                     </div>
                     <p>Por favor, aguarde...</p>
-                </div>
+                </div> -->
 
-                <div class="message">
+                <div class="message" style="display: none">
 
                     <img src="assets/images/check-circle.svg" alt="Ok" />
                     <span>Verifique as instruções no seu e-mail.</span>

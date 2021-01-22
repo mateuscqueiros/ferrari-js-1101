@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "apiKey": "AIzaSyDEEMso1spBa7bJr7hiAck-hDg3Rj6pq-w",
+  "authDomain": "ferrari-mqueiros.firebaseapp.com",
+  "projectId": "ferrari-mqueiros",
+  "storageBucket": "ferrari-mqueiros.appspot.com",
+  "messagingSenderId": "800334427358",
+  "appId": "1:800334427358:web:1968d92c10130199efbe4f",
+  "measurementId": "G-EZEFQB2DLJ"
+}
